@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,11 +8,170 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement()) @db.UnsignedMediumInt
-  nickname  String   @db.VarChar(31)
-  email     String   @unique @db.VarChar(200)
-  passwd    String?  @db.VarChar(128)
-  profile   String?  @db.VarChar(250)
-  createAt  DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
+  id                           Int             @id @default(autoincrement()) @db.UnsignedMediumInt
+  nickname                     String          @db.VarChar(31)
+  email                        String          @unique @db.VarChar(200)
+  passwd                       String?         @db.VarChar(128)
+  profile                      String?         @db.VarChar(250)
+  updatedAt                    DateTime        @default(now()) @updatedAt
+  createdAt                    DateTime        @default(now())
+  Follow_Follow_userToUser     Follow[]        @relation("Follow_userToUser")
+  Follow_Follow_followerToUser Follow[]        @relation("Follow_followerToUser")
+  Project                      Project[]
+  ProjectMember                ProjectMember[]
+  TermMember                   TermMember[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model Follow {
+  id                         Int  @id @default(autoincrement())
+  user                       Int  @db.UnsignedMediumInt
+  follower                   Int  @db.UnsignedMediumInt
+  User_Follow_userToUser     User @relation("Follow_userToUser", fields: [user], references: [id], onDelete: Cascade, map: "follow_ibfk_1")
+  User_Follow_followerToUser User @relation("Follow_followerToUser", fields: [follower], references: [id], onDelete: Cascade, map: "follow_ibfk_2")
+
+  @@unique([user, follower], map: "uniq_Follow_user_follower")
+  @@index([follower], map: "fk_Follow_follower")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model Project {
+  id            Int             @id @default(autoincrement()) @db.UnsignedSmallInt
+  term          Int             @db.UnsignedInt
+  title         String          @db.VarChar(50)
+  state         Boolean         @default(false)
+  titleimg      String?         @db.VarChar(127)
+  content       String          @db.VarChar(1024)
+  starter       Int             @db.UnsignedMediumInt
+  Term          Term            @relation(fields: [term], references: [id], onDelete: Cascade, map: "project_ibfk_1")
+  User          User            @relation(fields: [starter], references: [id], onDelete: Cascade, map: "project_ibfk_2")
+  ProjectMember ProjectMember[]
+  ProjectTag    ProjectTag[]
+
+  @@index([starter], map: "fk_Project_starter_User")
+  @@index([term], map: "fk_Project_term")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model ProjectMember {
+  id                 Int                  @id @default(autoincrement()) @db.UnsignedInt
+  project            Int                  @db.UnsignedSmallInt
+  user               Int                  @db.UnsignedMediumInt
+  duty               String?              @db.VarChar(255)
+  Project            Project              @relation(fields: [project], references: [id], onDelete: Cascade, map: "projectmember_ibfk_1")
+  User               User                 @relation(fields: [user], references: [id], onDelete: Cascade, map: "projectmember_ibfk_2")
+  ProjectMemberLover ProjectMemberLover[]
+  TermMemberLover    TermMemberLover[]
+
+  @@unique([project, user], map: "uniq_project_user")
+  @@index([user], map: "fk_ProjectMember_user")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model ProjectMemberLover {
+  id            Int           @id @default(autoincrement()) @db.UnsignedInt
+  projectMember Int           @db.UnsignedInt
+  callee        Int           @db.UnsignedInt
+  ProjectMember ProjectMember @relation(fields: [projectMember], references: [id], onDelete: Cascade, map: "projectmemberlover_ibfk_1")
+  TermMember    TermMember    @relation(fields: [callee], references: [id], onDelete: Cascade, map: "projectmemberlover_ibfk_2")
+
+  @@unique([projectMember, callee], map: "uniq_ProjectMemberLover_projectMember_callee")
+  @@index([callee], map: "fk_ProjectMemberLover_callee")
+}
+
+model ProjectTag {
+  id      Int     @id @default(autoincrement()) @db.UnsignedInt
+  project Int     @db.UnsignedSmallInt
+  tag     Int     @db.UnsignedInt
+  Project Project @relation(fields: [project], references: [id], onDelete: Cascade, map: "projecttag_ibfk_1")
+  Tag     Tag     @relation(fields: [tag], references: [id], onDelete: Cascade, map: "projecttag_ibfk_2")
+
+  @@unique([project, tag], map: "uniq_projet_tag")
+  @@index([tag], map: "fk_ProjectTag_tag")
+}
+
+model Skill {
+  id              Int               @id @db.UnsignedSmallInt
+  name            String            @unique(map: "uniq_Skill_name") @db.VarChar(16)
+  TermMemberSkill TermMemberSkill[]
+}
+
+model Tag {
+  id         Int          @id @default(autoincrement()) @db.UnsignedInt
+  tag        String       @unique(map: "uniq_ProjectTag_tag") @db.VarChar(32)
+  ProjectTag ProjectTag[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model Term {
+  id           Int          @id @default(autoincrement()) @db.UnsignedInt
+  title        String       @db.VarChar(32)
+  location     String       @db.VarChar(255)
+  membercnt    Int          @default(0) @db.TinyInt
+  applystart   DateTime     @db.Date
+  applyend     DateTime     @db.Date
+  otdate       DateTime     @db.DateTime(0)
+  projectstart DateTime     @db.Date
+  projectend   DateTime     @db.Date
+  Project      Project[]
+  TermMember   TermMember[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model TermMember {
+  id                 Int                  @id @default(autoincrement()) @db.UnsignedInt
+  term               Int                  @db.UnsignedInt
+  user               Int                  @db.UnsignedMediumInt
+  jobrole            TermMember_jobrole?
+  job                String               @default("Baksoo") @db.VarChar(32)
+  location           String               @db.VarChar(32)
+  mobile             String               @db.VarChar(13)
+  name               String               @db.VarChar(32)
+  birthyear          Int                  @db.Year
+  gender             Boolean
+  portfolio          String?              @db.VarChar(255)
+  motive             String               @db.VarChar(511)
+  goal               String               @db.VarChar(511)
+  wantproject        String?              @db.VarChar(255)
+  introduce          String               @db.VarChar(511)
+  ProjectMemberLover ProjectMemberLover[]
+  Term               Term                 @relation(fields: [term], references: [id], onDelete: Cascade, map: "termmember_ibfk_1")
+  User               User                 @relation(fields: [user], references: [id], onDelete: Cascade, map: "termmember_ibfk_2")
+  TermMemberLover    TermMemberLover[]
+  TermMemberSkill    TermMemberSkill[]
+
+  @@index([term], map: "fk_TermMember_term")
+  @@index([user], map: "fk_TermMember_user")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model TermMemberLover {
+  id            Int           @id @default(autoincrement())
+  callee        Int           @db.UnsignedInt
+  caller        Int           @db.UnsignedInt
+  accepted      Boolean       @default(false)
+  TermMember    TermMember    @relation(fields: [callee], references: [id], onDelete: Cascade, map: "termmemberlover_ibfk_1")
+  ProjectMember ProjectMember @relation(fields: [caller], references: [id], onDelete: Cascade, map: "termmemberlover_ibfk_2")
+
+  @@unique([callee, caller], map: "uniq_TermMemberLover_callee_caller")
+  @@index([caller], map: "fk_TermMemberLover_caller_ProjectMember")
+}
+
+model TermMemberSkill {
+  id         Int        @id @db.UnsignedInt
+  termMember Int        @db.UnsignedInt
+  skill      Int        @db.UnsignedSmallInt
+  TermMember TermMember @relation(fields: [termMember], references: [id], onDelete: Cascade, map: "termmemberskill_ibfk_1")
+  Skill      Skill      @relation(fields: [skill], references: [id], onDelete: Cascade, map: "termmemberskill_ibfk_2")
+
+  @@index([skill], map: "fk_TermMemberSkill_skill")
+  @@index([termMember], map: "fk_TermMemberSkill_termMember")
+}
+
+enum TermMember_jobrole {
+  FrontEnd
+  BackEnd
+  FullStack
+  PlanMaster
+  Designer
 }
