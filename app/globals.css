@@ -10,6 +10,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .fjb {
+    @apply flex justify-between;
+  }
 }
 
 @layer base {
