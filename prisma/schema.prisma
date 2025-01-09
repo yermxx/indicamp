@@ -7,76 +7,113 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Followers: User를 follow한, Followings: User가 follow한 
+// (ex. IU.Follwers[0].star: IU 자신, IU.followers[0].follower: IU를 follow한 User)
+// (ex. IU.Follwings[0].star: IU가 follow하는 User, IU.followings[0].follower: IU 자신)
 model User {
-  id                           Int             @id @default(autoincrement()) @db.UnsignedMediumInt
-  nickname                     String          @db.VarChar(31)
-  email                        String          @unique @db.VarChar(200)
-  passwd                       String?         @db.VarChar(128)
-  profile                      String?         @db.VarChar(250)
-  updatedAt                    DateTime        @default(now()) @updatedAt
-  createdAt                    DateTime        @default(now())
-  Follow_Follow_userToUser     Follow[]        @relation("Follow_userToUser")
-  Follow_Follow_followerToUser Follow[]        @relation("Follow_followerToUser")
-  Project                      Project[]
-  ProjectMember                ProjectMember[]
-  TermMember                   TermMember[]
+  id         Int      @id @default(autoincrement()) @db.UnsignedMediumInt
+  nickname   String   @db.VarChar(32)
+  email      String   @unique @db.VarChar(127)
+  passwd     String?  @db.VarChar(128)
+  profileimg String?  @db.VarChar(250)
+  updatedAt  DateTime @default(now()) @updatedAt
+  createdAt  DateTime @default(now()) // 가입일
+  Campers    Camper[] // 지원한 기수 신청 내역
+  Followers  Follow[] @relation("Follow_starToUser") // 이 유저`를` follow
+  Followings Follow[] @relation("Follow_followerToUser") // 이 유저`가` follow
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model Follow {
-  id                         Int  @id @default(autoincrement())
-  user                       Int  @db.UnsignedMediumInt
-  follower                   Int  @db.UnsignedMediumInt
-  User_Follow_userToUser     User @relation("Follow_userToUser", fields: [user], references: [id], onDelete: Cascade, map: "follow_ibfk_1")
-  User_Follow_followerToUser User @relation("Follow_followerToUser", fields: [follower], references: [id], onDelete: Cascade, map: "follow_ibfk_2")
+  id       Int  @id @default(autoincrement())
+  star     Int  @db.UnsignedMediumInt // 스타(follow 당한 사람)
+  follower Int  @db.UnsignedMediumInt // follow한 사람
+  Star     User @relation("Follow_starToUser", fields: [star], references: [id], onDelete: Cascade, map: "follow_ibfk_1")
+  Follower User @relation("Follow_followerToUser", fields: [follower], references: [id], onDelete: Cascade, map: "follow_ibfk_2")
 
-  @@unique([user, follower], map: "uniq_Follow_user_follower")
+  @@unique([star, follower], map: "uniq_Follow_star_follower")
   @@index([follower], map: "fk_Follow_follower")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+// 기수 (location: 기점 주소, membercnt: 최종 선정 멤버수, applystart ~ applyend: 모집기간)
+model Camp {
+  id           Int       @id @default(autoincrement()) @db.UnsignedInt
+  title        String    @db.VarChar(32)
+  location     String    @db.VarChar(255)
+  membercnt    Int       @default(0) @db.TinyInt
+  applystart   DateTime  @db.Date // 모집 시작일
+  applyend     DateTime  @db.Date // 모집 종료일
+  otdate       DateTime  @db.DateTime(0) // OT 일시
+  projectstart DateTime  @db.Date // 프로젝트 수행 시작일
+  projectend   DateTime  @db.Date // 프로젝트 수행 종료일
+  Campers      Camper[]
+  Projects     Project[]
+}
+
+// 해당 기수 신청자
+model Camper {
+  id           Int             @id @default(autoincrement()) @db.UnsignedInt
+  camp         Int             @db.UnsignedInt // 기수
+  user         Int             @db.UnsignedMediumInt
+  jobrole      Camper_jobrole?
+  job          String          @default("Baksoo") @db.VarChar(32) // 직업
+  location     String          @db.VarChar(32) // 현재 거주지
+  mobile       String          @db.VarChar(13)
+  name         String          @db.VarChar(32) // 실명
+  birthyear    Int             @db.Year // 생년
+  gender       Gender
+  portfolio    String?         @db.VarChar(255) // 대표 포플 링크
+  motive       String          @db.VarChar(511) // 지원 동기
+  goal         String          @db.VarChar(511) // 목적(얻고자 하는 것)
+  wantproject  String?         @db.VarChar(255) // 하고싶은 프로젝트에 대하여
+  introduce    String          @db.VarChar(511) // 자기 간단 소개
+  CampLovers   CampLover[]
+  Camp         Camp            @relation(fields: [camp], references: [id], onDelete: Cascade, map: "camper_ibfk_1")
+  User         User            @relation(fields: [user], references: [id], onDelete: Cascade, map: "camper_ibfk_2")
+  CamperSkills CamperSkill[] // 내가 가진 스킬셋들(캠퍼.CamperSkills[0].Skill.name)
+  Projects     Project[] // 내가 만든 프로젝트들
+  Projecters   Projecter[] // 내가 프로젝트 멤버로 활동한 내역
+
+  @@index([camp], map: "fk_Camper_camp")
+  @@index([user], map: "fk_Camper_user")
+}
+
+// camp에 속한 프로젝트들
 model Project {
-  id            Int             @id @default(autoincrement()) @db.UnsignedSmallInt
-  term          Int             @db.UnsignedInt
-  title         String          @db.VarChar(50)
-  state         Boolean         @default(false)
-  titleimg      String?         @db.VarChar(127)
-  content       String          @db.VarChar(1024)
-  starter       Int             @db.UnsignedMediumInt
-  Term          Term            @relation(fields: [term], references: [id], onDelete: Cascade, map: "project_ibfk_1")
-  User          User            @relation(fields: [starter], references: [id], onDelete: Cascade, map: "project_ibfk_2")
-  ProjectMember ProjectMember[]
-  ProjectTag    ProjectTag[]
+  id          Int           @id @default(autoincrement()) @db.UnsignedSmallInt
+  camp        Int           @db.UnsignedInt
+  title       String        @db.VarChar(50) // 프로젝트 명
+  state       Project_state @default(Ready)
+  titleimg    String?       @db.VarChar(127) // 대표이미지
+  content     String        @db.VarChar(1024) // 개요
+  starter     Int           @db.UnsignedInt // 만든사람(Camper)
+  Camp        Camp          @relation(fields: [camp], references: [id], onDelete: Cascade, map: "project_ibfk_1")
+  Starter     Camper        @relation(fields: [starter], references: [id], onDelete: Cascade, map: "project_ibfk_2")
+  ProjectTags ProjectTag[]
+  Projecters  Projecter[]
 
   @@index([starter], map: "fk_Project_starter_User")
-  @@index([term], map: "fk_Project_term")
+  @@index([camp], map: "fk_Project_camp")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model ProjectMember {
-  id                 Int                  @id @default(autoincrement()) @db.UnsignedInt
-  project            Int                  @db.UnsignedSmallInt
-  user               Int                  @db.UnsignedMediumInt
-  duty               String?              @db.VarChar(255)
-  Project            Project              @relation(fields: [project], references: [id], onDelete: Cascade, map: "projectmember_ibfk_1")
-  User               User                 @relation(fields: [user], references: [id], onDelete: Cascade, map: "projectmember_ibfk_2")
-  ProjectMemberLover ProjectMemberLover[]
-  TermMemberLover    TermMemberLover[]
-
-  @@unique([project, user], map: "uniq_project_user")
-  @@index([user], map: "fk_ProjectMember_user")
+enum Project_state {
+  Ready // 준비(모집중)
+  Ongoing // 확정/진행중
+  Completed // 완료
+  Drop // 중도 포기
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model ProjectMemberLover {
-  id            Int           @id @default(autoincrement()) @db.UnsignedInt
-  projectMember Int           @db.UnsignedInt
-  callee        Int           @db.UnsignedInt
-  ProjectMember ProjectMember @relation(fields: [projectMember], references: [id], onDelete: Cascade, map: "projectmemberlover_ibfk_1")
-  TermMember    TermMember    @relation(fields: [callee], references: [id], onDelete: Cascade, map: "projectmemberlover_ibfk_2")
+// 프로젝트 멤버 (projecter.Camper.User.email)
+model Projecter {
+  id         Int         @id @default(autoincrement()) @db.UnsignedInt
+  project    Int         @db.UnsignedSmallInt
+  camper     Int         @db.UnsignedInt
+  duty       String?     @db.VarChar(255) // 맡은 업무
+  CampLovers CampLover[]
+  Project    Project     @relation(fields: [project], references: [id], onDelete: Cascade, map: "projecter_ibfk_1")
+  Camper     Camper      @relation(fields: [camper], references: [id], onDelete: Cascade, map: "projecter_ibfk_2")
 
-  @@unique([projectMember, callee], map: "uniq_ProjectMemberLover_projectMember_callee")
-  @@index([callee], map: "fk_ProjectMemberLover_callee")
+  @@unique([project, camper], map: "uniq_Projecter_project_camper")
+  @@index([camper], map: "fk_Projecter_camper")
 }
 
 model ProjectTag {
@@ -91,84 +128,48 @@ model ProjectTag {
 }
 
 model Skill {
-  id              Int               @id @db.UnsignedSmallInt
-  name            String            @unique(map: "uniq_Skill_name") @db.VarChar(16)
-  TermMemberSkill TermMemberSkill[]
+  id           Int           @id @db.UnsignedSmallInt
+  name         String        @unique(map: "uniq_Skill_name") @db.VarChar(16)
+  CamperSkills CamperSkill[]
 }
 
 model Tag {
-  id         Int          @id @default(autoincrement()) @db.UnsignedInt
-  tag        String       @unique(map: "uniq_ProjectTag_tag") @db.VarChar(32)
-  ProjectTag ProjectTag[]
+  id          Int          @id @default(autoincrement()) @db.UnsignedInt
+  tag         String       @unique(map: "uniq_ProjectTag_tag") @db.VarChar(32)
+  ProjectTags ProjectTag[]
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model Term {
-  id           Int          @id @default(autoincrement()) @db.UnsignedInt
-  title        String       @db.VarChar(32)
-  location     String       @db.VarChar(255)
-  membercnt    Int          @default(0) @db.TinyInt
-  applystart   DateTime     @db.Date
-  applyend     DateTime     @db.Date
-  otdate       DateTime     @db.DateTime(0)
-  projectstart DateTime     @db.Date
-  projectend   DateTime     @db.Date
-  Project      Project[]
-  TermMember   TermMember[]
-}
+// 플젝에 involve한 Projecter(caller)가 특정 기수 신청자(callee)에게 LoveCall 보낸 내역
+// 프로젝트 당 최대 8명에게 로브콜을 보낼 수 있음.
+model CampLover {
+  id              Int       @id @default(autoincrement())
+  callee          Int       @db.UnsignedInt // 로브콜 당한 사람(아직 해당 플젝의 멤버가 아닌 캠퍼)
+  caller          Int       @db.UnsignedInt // 로브콜 호출한 사람(플젝멤버)
+  accepted        Boolean   @default(false)
+  CalleeCamper    Camper    @relation(fields: [callee], references: [id], onDelete: Cascade, map: "camplover_ibfk_1")
+  CallerProjecter Projecter @relation(fields: [caller], references: [id], onDelete: Cascade, map: "camplover_ibfk_2")
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model TermMember {
-  id                 Int                  @id @default(autoincrement()) @db.UnsignedInt
-  term               Int                  @db.UnsignedInt
-  user               Int                  @db.UnsignedMediumInt
-  jobrole            TermMember_jobrole?
-  job                String               @default("Baksoo") @db.VarChar(32)
-  location           String               @db.VarChar(32)
-  mobile             String               @db.VarChar(13)
-  name               String               @db.VarChar(32)
-  birthyear          Int                  @db.Year
-  gender             Boolean
-  portfolio          String?              @db.VarChar(255)
-  motive             String               @db.VarChar(511)
-  goal               String               @db.VarChar(511)
-  wantproject        String?              @db.VarChar(255)
-  introduce          String               @db.VarChar(511)
-  ProjectMemberLover ProjectMemberLover[]
-  Term               Term                 @relation(fields: [term], references: [id], onDelete: Cascade, map: "termmember_ibfk_1")
-  User               User                 @relation(fields: [user], references: [id], onDelete: Cascade, map: "termmember_ibfk_2")
-  TermMemberLover    TermMemberLover[]
-  TermMemberSkill    TermMemberSkill[]
-
-  @@index([term], map: "fk_TermMember_term")
-  @@index([user], map: "fk_TermMember_user")
-}
-
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model TermMemberLover {
-  id            Int           @id @default(autoincrement())
-  callee        Int           @db.UnsignedInt
-  caller        Int           @db.UnsignedInt
-  accepted      Boolean       @default(false)
-  TermMember    TermMember    @relation(fields: [callee], references: [id], onDelete: Cascade, map: "termmemberlover_ibfk_1")
-  ProjectMember ProjectMember @relation(fields: [caller], references: [id], onDelete: Cascade, map: "termmemberlover_ibfk_2")
-
-  @@unique([callee, caller], map: "uniq_TermMemberLover_callee_caller")
+  @@unique([callee, caller], map: "uniq_CampLover_callee_caller")
   @@index([caller], map: "fk_TermMemberLover_caller_ProjectMember")
 }
 
-model TermMemberSkill {
-  id         Int        @id @db.UnsignedInt
-  termMember Int        @db.UnsignedInt
-  skill      Int        @db.UnsignedSmallInt
-  TermMember TermMember @relation(fields: [termMember], references: [id], onDelete: Cascade, map: "termmemberskill_ibfk_1")
-  Skill      Skill      @relation(fields: [skill], references: [id], onDelete: Cascade, map: "termmemberskill_ibfk_2")
+model CamperSkill {
+  id     Int    @id @db.UnsignedInt
+  camper Int    @db.UnsignedInt
+  skill  Int    @db.UnsignedSmallInt
+  Camper Camper @relation(fields: [camper], references: [id], onDelete: Cascade, map: "termmemberskill_ibfk_1")
+  Skill  Skill  @relation(fields: [skill], references: [id], onDelete: Cascade, map: "termmemberskill_ibfk_2")
 
-  @@index([skill], map: "fk_TermMemberSkill_skill")
-  @@index([termMember], map: "fk_TermMemberSkill_termMember")
+  @@index([skill], map: "fk_CamperSkill_skill")
+  @@index([camper], map: "fk_CamperSkill_termMember")
 }
 
-enum TermMember_jobrole {
+enum Gender {
+  Male
+  Female
+}
+
+enum Camper_jobrole {
   FrontEnd
   BackEnd
   FullStack
