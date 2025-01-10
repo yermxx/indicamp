@@ -48,7 +48,7 @@ export default function Faq() {
     <section className='flex items-center justify-center px-12 py-28 font-["pretendard"]'>
       <div className='sm:w-1/2'>
         {/* Section title */}
-        <h2 className='text-center sm:text-left text-2xl sm:text-4xl font-semibold mb-12'>
+        <h2 className='text-center sm:text-left text-2xl sm:text-3xl font-semibold mb-12'>
           <strong className='text-indigo-900'>Indicamp</strong>에 대해 더 자세히
           알려드려요!
         </h2>
@@ -77,12 +77,12 @@ export default function Faq() {
         </div>
         {/* CTA */}
         <div className='flex items-center justify-center sm:justify-end gap-4 sm:gap-6'>
-          <h2 className='text-lg sm:text-2xl font-bold'>
+          <h2 className='text-gray-500 font-bold text-lg sm:text-xl'>
             추가로 궁금한 점이 있다면?
           </h2>
           <Link href='/faq'>
             <div>
-              <SolidButton type='button' text='1:1 문의하기 ->' />
+              <SolidButton type='button' text='1:1 문의하기 →' />
             </div>
           </Link>
         </div>

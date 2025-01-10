@@ -1,9 +1,9 @@
-import PlanetOverlayImg from '@/public/home/benefit/planet-overlay.svg';
-import PlanetImg from '@/public/home/benefit/planet.png';
-import member1 from '@/public/home/benefit/team-member-01.jpg';
-import member2 from '@/public/home/benefit/team-member-02.jpg';
-import member3 from '@/public/home/benefit/team-member-03.jpg';
-import member4 from '@/public/home/benefit/team-member-04.jpg';
+import PlanetOverlayImg from '@/benefit/planet-overlay.svg';
+import PlanetImg from '@/benefit/planet.png';
+import member1 from '@/benefit/team-member-01.jpg';
+import member2 from '@/benefit/team-member-02.jpg';
+import member3 from '@/benefit/team-member-03.jpg';
+import member4 from '@/benefit/team-member-04.jpg';
 import {
   ChartColumn,
   Rocket,
@@ -149,7 +149,7 @@ export default function Benefit() {
                               width={24}
                               height={24}
                             />
-                            <p className='text-xs sm:text-lg text-white font-bold'>
+                            <p className='text-xs sm:text-sm text-white font-semibold'>
                               {data.roll}
                             </p>
                           </div>
@@ -175,6 +175,7 @@ export default function Benefit() {
                   const Icon = benefit.icon;
                   return (
                     <article
+                      key={benefit.id}
                       className={`col-span-1 ${benefit.id > 1 && 'sm:border-l sm:border-l-gray-700'} h-24 flex flex-col items-start sm:items-center justify-center`}
                     >
                       <div className='w-full sm:w-auto text-left border border-gray-500 rounded-lg px-8 py-4 sm:p-0 sm:border-none'>
@@ -205,6 +206,7 @@ export default function Benefit() {
                   const Icon = benefit.icon;
                   return (
                     <article
+                      key={benefit.id}
                       className={`col-span-1 ${benefit.id > 1 && 'sm:border-l sm:border-l-gray-700'} h-24 flex flex-col items-start sm:items-center justify-center`}
                     >
                       <div className='w-full sm:w-auto text-left border border-gray-500 rounded-lg px-8 py-4 sm:p-0 sm:border-none'>

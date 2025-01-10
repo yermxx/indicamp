@@ -1,6 +1,6 @@
 import { SessionProvider } from 'next-auth/react';
 import type { Metadata } from 'next';
-import Footer from '@/components/footer';
+import Footer from '@/components/ui/footer';
 import Navigation from '@/components/ui/navigation';
 import './globals.css';
 

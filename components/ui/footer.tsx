@@ -38,10 +38,10 @@ export default function Footer() {
 
           {/* 2nd block */}
           <div className='sm:col-span-6 md:col-span-3 lg:col-span-2 mb-3 md:mb-0'>
-            <h6 className='text-2xl text-white font-semibold  mb-2 md:mb-4'>
+            <h6 className='text-xl text-white font-semibold  mb-2 md:mb-4'>
               About
             </h6>
-            <ul className='text-lg md:text-xl font-medium space-y-2 md:space-y-3'>
+            <ul className='text-base font-medium space-y-2'>
               <li>
                 <Link
                   href='/about'
@@ -71,10 +71,10 @@ export default function Footer() {
 
           {/* 3rd block */}
           <div className='sm:col-span-6 md:col-span-3 lg:col-span-2 mb-3 md:mb-0'>
-            <h6 className='text-2xl text-white font-semibold mb-2 md:mb-4'>
+            <h6 className='text-xl text-white font-semibold mb-2 md:mb-4'>
               Resources
             </h6>
-            <ul className='text-lg md:text-xl font-medium space-y-2 md:space-y-3'>
+            <ul className='text-base font-medium space-y-2'>
               <li>
                 <Link
                   href='/lesson'
@@ -96,10 +96,10 @@ export default function Footer() {
 
           {/* 4th block */}
           <div className='sm:col-span-6 md:col-span-3 lg:col-span-2 mb-3 md:mb-0'>
-            <h6 className='text-2xl text-white font-semibold mb-2 md:mb-4'>
+            <h6 className='text-xl text-white font-semibold mb-2 md:mb-4'>
               Legal
             </h6>
-            <ul className='text-lg md:text-xl font-medium space-y-2 md:space-y-3'>
+            <ul className='text-base font-medium space-y-2'>
               <li>
                 <Link
                   href='#'
