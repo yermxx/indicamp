@@ -1,10 +1,10 @@
-import kakaoEnter from '@/mentor/Kakao_enterprise_ci.png';
-import line from '@/mentor/LINE_Corporation_Logo.png';
-import toss from '@/mentor/Toss_Logo_Primary.png';
-import man2 from '@/mentor/man2.png';
-import man from '@/mentor/man.png';
-import woman from '@/mentor/woman.png';
-import senior from '@/mentor/전성호+멘토님.png';
+import kakaoEnter from '@/public/images/home/mentor/Kakao_enterprise_ci.png';
+import line from '@/public/images/home/mentor/LINE_ci.png';
+import toss from '@/public/images/home/mentor/Toss_ci.png';
+import man2 from '@/public/images/home/mentor/man2.png';
+import man from '@/public/images/home/mentor/man.png';
+import woman from '@/public/images/home/mentor/woman.png';
+import senior from '@/public/images/home/mentor/전성호_멘토님.png';
 import { Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';

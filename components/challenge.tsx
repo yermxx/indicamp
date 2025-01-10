@@ -1,7 +1,7 @@
-import dahye from '@/challenge/dahye.png';
-import jieun from '@/challenge/jieun.png';
-import junho from '@/challenge/junho.png';
-import minsu from '@/challenge/minsu.png';
+import dahye from '@/public/images/home/challenge/dahye.png';
+import jieun from '@/public/images/home/challenge/jieun.png';
+import junho from '@/public/images/home/challenge/junho.png';
+import minsu from '@/public/images/home/challenge/minsu.png';
 import styles from '@/styles/bubble.module.css';
 import Image from 'next/image';
 
