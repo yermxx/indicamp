@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { auth, signIn } from '@/lib/auth';
 import prisma, { query } from '@/lib/db';
-import PassButton from '@/components/pass-button';
 import { Button } from '@/components/ui/button';
 import GithubLogin from './github-login';
 import KakaoLogin from './kakao-login';
+import PassButton from './pass-button';
 
 type User = {
   id: number;
