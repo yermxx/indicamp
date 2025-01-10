@@ -21,6 +21,7 @@ export default function Accordion({
 
   useEffect(() => {
     setAccordionOpen(active);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
