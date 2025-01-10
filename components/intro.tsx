@@ -1,11 +1,10 @@
-import { Button } from './ui/button';
+import SolidButton from './ui/solid-button';
 
 export default function Intro() {
   const number = 1;
 
   return (
     <section className='bg-gradient01 h-full w-full'>
-      {/* absolute min-w-[1920px] h-[2550px] brightness-[90%] */}
       <h1 className='pt-28 text-4xl text-center font-["pretendard"] font-bold'>
         실무 프로젝트는
         <br />
@@ -68,8 +67,10 @@ export default function Intro() {
         중!
       </h1>
       <div className='flex justify-center mt-4 pb-20'>
-        <Button>1기 참가 신청하러 가기 </Button>
-        {/* TODO: button컴포넌트로 변경 */}
+        <SolidButton
+          text={`${number}기 참가 신청하러 가기`}
+          type='button'
+        ></SolidButton>
       </div>
     </section>
   );
