@@ -1,9 +1,9 @@
-import PlanetOverlayImg from '@/public/home/benefit/planet-overlay.svg';
-import PlanetImg from '@/public/home/benefit/planet.png';
-import member1 from '@/public/home/benefit/team-member-01.jpg';
-import member2 from '@/public/home/benefit/team-member-02.jpg';
-import member3 from '@/public/home/benefit/team-member-03.jpg';
-import member4 from '@/public/home/benefit/team-member-04.jpg';
+import planetOverlay from '@/public/images/home/benefit/planet-overlay.svg';
+import planet from '@/public/images/home/benefit/planet.png';
+import member1 from '@/public/images/home/benefit/team-member-01.jpg';
+import member2 from '@/public/images/home/benefit/team-member-02.jpg';
+import member3 from '@/public/images/home/benefit/team-member-03.jpg';
+import member4 from '@/public/images/home/benefit/team-member-04.jpg';
 import {
   ChartColumn,
   Rocket,
@@ -126,13 +126,13 @@ export default function Benefit() {
               <div className='relative inline-flex rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] before:bg-gradient-to-b before:from-blue-900 before:to-sky-700/50 before:blur-3xl after:absolute after:inset-0 after:rounded-[inherit] after:[background:radial-gradient(closest-side,theme(colors.blue.500),transparent)]'>
                 <Image
                   className='rounded-full bg-gray-900 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px] mb-3'
-                  src={PlanetImg}
+                  src={planet}
                   alt='Planet'
                 />
                 <div className='pointer-events-none' aria-hidden='true'>
                   <Image
                     className='absolute -right-64 -top-20 z-10 max-w-none w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px] mb-3'
-                    src={PlanetOverlayImg}
+                    src={planetOverlay}
                     alt='Planet decoration'
                   />
                   <ul>
@@ -149,7 +149,7 @@ export default function Benefit() {
                               width={24}
                               height={24}
                             />
-                            <p className='text-xs sm:text-lg text-white font-bold'>
+                            <p className='text-xs sm:text-sm text-white font-semibold'>
                               {data.roll}
                             </p>
                           </div>
@@ -175,6 +175,7 @@ export default function Benefit() {
                   const Icon = benefit.icon;
                   return (
                     <article
+                      key={benefit.id}
                       className={`col-span-1 ${benefit.id > 1 && 'sm:border-l sm:border-l-gray-700'} h-24 flex flex-col items-start sm:items-center justify-center`}
                     >
                       <div className='w-full sm:w-auto text-left border border-gray-500 rounded-lg px-8 py-4 sm:p-0 sm:border-none'>
@@ -205,6 +206,7 @@ export default function Benefit() {
                   const Icon = benefit.icon;
                   return (
                     <article
+                      key={benefit.id}
                       className={`col-span-1 ${benefit.id > 1 && 'sm:border-l sm:border-l-gray-700'} h-24 flex flex-col items-start sm:items-center justify-center`}
                     >
                       <div className='w-full sm:w-auto text-left border border-gray-500 rounded-lg px-8 py-4 sm:p-0 sm:border-none'>
@@ -233,7 +235,7 @@ export default function Benefit() {
               더 많은 혜택이 궁금하다면?
             </h2>
             <Link href='/about' className='flex justify-center'>
-              <SolidButton text='혜택 보러 가기 ->' type='button' />
+              <SolidButton text='혜택 보러 가기 →' type='button' />
             </Link>
           </div>
         </div>

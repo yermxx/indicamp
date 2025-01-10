@@ -26,9 +26,9 @@ export default function Accordion({
 
   return (
     <div className={`font-["pretendard"] ${className}`}>
-      <h3 className='py-1 sm:py-3 text-lg sm:text-2xl font-bold'>
+      <h3 className='py-1 sm:py-2 text-lg sm:text-xl font-bold'>
         <button
-          className='flex items-center justify-between w-full text-left font-medium px-5 py-3'
+          className='flex items-center justify-between w-full text-left font-medium px-5 py-2'
           onClick={(e) => {
             e.preventDefault();
             setAccordionOpen(!accordionOpen);
@@ -64,7 +64,7 @@ export default function Accordion({
         id={`accordion-text-${id}`}
         role='region'
         aria-labelledby={`accordion-title-${id}`}
-        className={`grid rounded-xl text-base sm:text-lg bg-blue-100 overflow-hidden transition-all duration-300 ease-in-out ${accordionOpen ? 'grid-rows-[1fr] opacity-100 mb-6' : 'grid-rows-[0fr] opacity-0'}`}
+        className={`grid rounded-xl text-sm bg-blue-100 overflow-hidden transition-all duration-300 ease-in-out ${accordionOpen ? 'grid-rows-[1fr] opacity-100 mb-6' : 'grid-rows-[0fr] opacity-0'}`}
       >
         <div className='overflow-hidden'>
           <div className='text-gray-600 rounded-md px-8 py-4 sm:py-6 leading-normal'>
