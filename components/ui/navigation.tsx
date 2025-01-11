@@ -7,16 +7,16 @@ export default function Navigation() {
   return (
     <nav>
       <div className='flex items-center justify-between pt-7 pb-4 border-b shadow-md bg-white'>
-        <div className='flex relative px-8 font-bold'>
-          <strong className='text-2xl'>Indicam</strong>
+        <Link href='/' className='flex relative px-8 font-bold'>
+          <strong className='text-3xl'>indicam</strong>
           <Image
             className='absolute right-1 bottom-0'
             src={logo}
-            alt='logo'
+            alt='indicamp logo'
             width='28'
             height='28'
           />
-        </div>
+        </Link>
         <div className='flex gap-24 text-lg text-gray-800'>
           <Link
             href='/about'

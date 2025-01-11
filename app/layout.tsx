@@ -20,7 +20,7 @@ export default function RootLayout({
         <header className='fixed w-full z-50'>
           <Navigation />
         </header>
-        <main className='pt-24 container'>
+        <main className='pt-24x containerx'>
           <SessionProvider>{children}</SessionProvider>
         </main>
         <footer className='bottom-0 w-full'>

@@ -1,11 +1,13 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
+@import 'utility-patterns.css';
 
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@tailwind utilities;
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -13,6 +15,10 @@ body {
 
   .fjb {
     @apply flex justify-between;
+  }
+
+  .rtl {
+    direction: rtl;
   }
 }
 

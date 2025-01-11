@@ -1,5 +1,7 @@
 import prisma from '@/lib/db';
 import AvatarPlaceholder from '@/components/avatar-placeholder';
+import Hero from './hero';
+import Inspiration from './inspiration';
 
 export default async function About() {
   const projecter = await prisma.projecter.findUnique({
@@ -13,13 +15,18 @@ export default async function About() {
   const cnt = await prisma.camp.count();
   console.log('🚀  projecter:', projecter, cnt);
   return (
-    <div className='my-5'>
-      <h1 className='text-3xl'>About @indicamp</h1>
+    <>
+      <Hero />
+      <Inspiration />
 
-      <AvatarPlaceholder name='홍길동' />
-      <AvatarPlaceholder name='Jade' />
-      <AvatarPlaceholder name='박' />
-      <AvatarPlaceholder name='ax' className='bg-red-500' />
-    </div>
+      <div className='my-5'>
+        <h1 className='text-3xl'>About @indicamp</h1>
+
+        <AvatarPlaceholder name='홍길동' />
+        <AvatarPlaceholder name='Jade' />
+        <AvatarPlaceholder name='박' />
+        <AvatarPlaceholder name='ax' className='bg-red-500' />
+      </div>
+    </>
   );
 }
