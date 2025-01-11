@@ -19,7 +19,7 @@ export default async function About() {
       <AvatarPlaceholder name='홍길동' />
       <AvatarPlaceholder name='Jade' />
       <AvatarPlaceholder name='박' />
-      <AvatarPlaceholder name='o' />
+      <AvatarPlaceholder name='ax' className='bg-red-500' />
     </div>
   );
 }
