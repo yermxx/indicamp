@@ -3,8 +3,8 @@ import line from '@/public/images/home/mentor/LINE_ci.png';
 import toss from '@/public/images/home/mentor/Toss_ci.png';
 import man2 from '@/public/images/home/mentor/man2.png';
 import man from '@/public/images/home/mentor/man.png';
+import senior from '@/public/images/home/mentor/senior_coding.png';
 import woman from '@/public/images/home/mentor/woman.png';
-import senior from '@/public/images/home/mentor/전성호_멘토님.png';
 import { Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -34,7 +34,7 @@ export default function Mentor() {
                 <Image
                   src={senior}
                   alt='전성호 멘토님'
-                  width={140}
+                  width={200}
                   className='rounded-3xl mb-6'
                 />
                 <p className='text-center font-bold text-indigo-900 text-xl'>

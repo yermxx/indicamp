@@ -32,7 +32,7 @@ export default function Navigation() {
             Lesson
           </Link>
           <Link
-            href='/project'
+            href='/projects'
             className='hover:text-gray-500 hover:underline underline-offset-4'
           >
             Projects
