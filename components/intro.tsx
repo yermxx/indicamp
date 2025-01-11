@@ -1,11 +1,14 @@
+import Link from 'next/link';
 import SolidButton from './ui/solid-button';
 
 export default function Intro() {
   const number = 1;
+  const APPLY_SCHEDULE = `2025.02.01 ~ 2025.02.14`;
 
   return (
-    <section className='bg-gradient01 h-full w-full'>
-      <h1 className='pt-28 text-4xl text-center font-["pretendard"] font-bold'>
+    <section className='relative bg-gradient-to-r from-sky-100 from-10% via-blue-400 to-lime-200 h-full w-full'>
+      <div className='absolute inset-0 bg-noise01 opacity-10'></div>
+      <h1 className='relative z-10 pt-28 text-4xl text-center font-["pretendard"] font-bold'>
         실무 프로젝트는
         <br />
         <strong className='text-mainblue'>Indicamp</strong>에서 끝내자!
@@ -34,7 +37,7 @@ export default function Intro() {
                 $ cd indicamp
               </span>
               <br />
-              <span className='animate-[code-2_10s_infinite] text-gray-200'>
+              <span className='font-["Inter"] animate-[code-2_10s_infinite] text-gray-200'>
                 $ cat welcome.txt
               </span>
               <br />
@@ -44,7 +47,7 @@ export default function Intro() {
               </span>
               <br />
               <span className='animate-[code-4_10s_infinite] text-gray-200'>
-                2025.02.01 ~ 2025.02.14 (2주간)
+                {`${APPLY_SCHEDULE} (2주간)`}
               </span>
               <br />
               <br />
@@ -62,15 +65,17 @@ export default function Intro() {
         </div>
       </div>
 
-      <h1 className='text-3xl text-center font-["pretendard"] font-bold'>
+      <h1 className='relative z-10 text-3xl text-center font-["pretendard"] font-bold m-10'>
         현재 <strong className='text-mainblue'>Indicamp</strong> {number}기 모집
         중!
       </h1>
-      <div className='flex justify-center mt-4 pb-20'>
-        <SolidButton
-          text={`${number}기 참가 신청하러 가기`}
-          type='button'
-        ></SolidButton>
+      <div className='flex relative z-10 justify-center mt-4 pb-20'>
+        <Link href={'/register'}>
+          <SolidButton
+            text={`${number}기 참가 신청하러 가기 →`}
+            type='button'
+          />
+        </Link>
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ const config: Config = {
         inter: ['Inter', 'sans-serif'],
       },
       backgroundImage: {
-        gradient01: 'url("/images/noisy-gradients.png")',
+        noise01: 'url("/images/noise.jpg")',
       },
       colors: {
         mainblue: ' #1E3A8A',

@@ -1,5 +1,6 @@
 import Benefit from '@/components/benefit';
 import Challenge from '@/components/challenge';
+import Curriculum from '@/components/curriculum';
 import Edge from '@/components/edge';
 import Faq from '@/components/faq';
 import Intro from '@/components/intro';
@@ -9,11 +10,12 @@ export default function HomePage() {
   return (
     <>
       <Intro />
-      <Challenge />;
+      <Challenge />
       <Edge />
       <Mentor />
-      <Benefit />;
-      <Faq />;
+      <Curriculum />
+      <Benefit />
+      <Faq />
     </>
   );
 }
