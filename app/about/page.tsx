@@ -13,10 +13,13 @@ export default async function About() {
   const cnt = await prisma.camp.count();
   console.log('🚀  projecter:', projecter, cnt);
   return (
-    <>
+    <div className='my-5'>
       <h1 className='text-3xl'>About @indicamp</h1>
 
       <AvatarPlaceholder name='홍길동' />
-    </>
+      <AvatarPlaceholder name='Jade' />
+      <AvatarPlaceholder name='박' />
+      <AvatarPlaceholder name='o' />
+    </div>
   );
 }

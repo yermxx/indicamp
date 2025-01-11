@@ -28,3 +28,6 @@ export function parseZodErrorMessage(error: z.ZodError) {
   // return `${err.message}(${err.path})`;
   return err.message;
 }
+
+const regHangul = new RegExp(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/);
+export const isHangul = (str: string) => regHangul.test(str);
