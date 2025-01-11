@@ -1,4 +1,5 @@
 import ProjectCards from './(project-card)/card';
+import ProjectCreateForm from '@/app/projects/project-create-form';
 
 export const metadata = {
   title: 'Shop - Mosaic',
@@ -57,6 +58,8 @@ export default function ProjectsPage() {
             <ProjectCards />
           </div>
         </div>
+        {/*임시 추가버튼*/}
+        <ProjectCreateForm/>
       </div>
     </div>
   );
