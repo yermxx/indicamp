@@ -110,6 +110,9 @@ const config: Config = {
           '97.5%': { opacity: '1' },
           '100%': { opacity: '0' },
         },
+        gradient: {
+          to: { 'background-position': '200% center' },
+        },
       },
     },
     plugins: [animate],

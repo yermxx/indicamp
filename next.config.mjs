@@ -8,6 +8,18 @@ const nextConfig = {
         port: '',
         search: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'youtu.be',
+        port: '',
+        search: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        port: '',
+        search: '',
+      },
     ],
   },
 };
