@@ -4,7 +4,7 @@ import LessonCategory from './(compnents)/lessonCategory';
 
 export default function Lesson() {
   return (
-    <>
+    <div className='mx-auto max-w-7xl px-4 sm:px-6'>
       <div className='py-8 md:pt-20 md:pb-10 relative '>
         <div className='pb-12 text-center'>
           <h1 className='animate-[gradient_3s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl'>
@@ -27,7 +27,7 @@ export default function Lesson() {
         </div>
         <PageNation />
       </section>
-    </>
+    </div>
   );
 }
 
