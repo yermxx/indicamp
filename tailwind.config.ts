@@ -69,7 +69,11 @@ const config: Config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      animation: {
+        shine: 'shine 2.5s',
+      },
       keyframes: {
+        shine: { '100%': { left: '125%' } },
         'code-1': {
           '0%': { opacity: '0' },
           '2.5%': { opacity: '1' },
