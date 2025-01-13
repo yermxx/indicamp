@@ -49,7 +49,7 @@ export default function Faq() {
       <div className='sm:w-1/2'>
         {/* Section title */}
         <h2 className='text-center sm:text-left text-2xl sm:text-3xl font-semibold mb-12'>
-          <strong className='text-indigo-900'>Indicamp</strong>에 대해 더 자세히
+          <strong className='text-indigo-900'>indicamp</strong>에 대해 더 자세히
           알려드려요!
         </h2>
         {/* Main */}
@@ -80,7 +80,7 @@ export default function Faq() {
           <h2 className='text-gray-500 font-bold text-lg sm:text-xl'>
             추가로 궁금한 점이 있다면?
           </h2>
-          <Link href='/faq'>
+          <Link href='inquiry'>
             <div>
               <SolidButton type='button' text='1:1 문의하기 →' />
             </div>

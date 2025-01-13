@@ -1,9 +1,13 @@
 import prisma from '@/lib/db';
 import AvatarPlaceholder from '@/components/avatar-placeholder';
+import AboutBlog from './blog';
 import Creatives from './creatives';
+import AboutCta from './cta';
 import Hero from './hero';
+import Hosts from './hosts';
 import LastProjectsCarousel from './last-projects';
 import LatestCamps from './latest-camps';
+import MainReviewsInAbout from './main_review';
 
 export const metadata = {
   title: 'About - indicamp',
@@ -27,10 +31,12 @@ export default async function About() {
       <LatestCamps />
       <LastProjectsCarousel />
       <Creatives />
+      <Hosts />
+      <MainReviewsInAbout />
+      <AboutBlog />
+      <AboutCta />
 
       <div className='my-5'>
-        <h1 className='text-3xl'>About @indicamp</h1>
-
         <AvatarPlaceholder name='홍길동' />
         <AvatarPlaceholder name='Jade' />
         <AvatarPlaceholder name='박' />
