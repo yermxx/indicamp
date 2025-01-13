@@ -1,15 +1,17 @@
 import ProjectDetail from '@/app/projects/project-detail';
 import Link from 'next/link';
+import AvatarPlaceholder from '@/components/avatar-placeholder';
 import { ModalDetail } from '@/components/modal-detail';
 
 export default function ProjectCards() {
+  const names = ['신광', '기환', '동재', '지연', '예림'];
   return (
     <>
       <ModalDetail
         triggerButton={
           <Link
             href='#'
-            className='col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-gray-800 shadow-xl rounded-xl overflow-hidden'
+            className='col-span-full sm:col-span-6 xl:col-span-9 bg-white dark:bg-gray-800 shadow-xl rounded-xl overflow-hidden'
           >
             <div className='flex flex-col h-full'>
               {/* Card Content */}
@@ -46,21 +48,12 @@ export default function ProjectCards() {
                 {/* Card footer */}
                 <div className='mt-4'>
                   {/* Right side */}
-                  <ul className='shrink-0 flex flex-wrap justify-end  -space-x-3 -ml-px'>
-                    <li>
-                      <span className='block w-9 h-9 rounded-full bg-black' />
-                    </li>
-                    <li>
-                      <span className='block w-9 h-9 rounded-full bg-green-800' />
-                    </li>
-                    <li>
-                      <span className='block w-9 h-9 rounded-full bg-blue-800' />
-                    </li>
-                    <li>
-                      <span className='block w-9 h-9 rounded-full bg-gray-500 text-center'>
-                        +
-                      </span>
-                    </li>
+                  <ul className='shrink-0 flex flex-wrap justify-end -space-x-4 -ml-px -mt-5'>
+                    {names.map((name) => (
+                      <li key={name}>
+                        <AvatarPlaceholder name={name} className='border-2' />
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>

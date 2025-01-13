@@ -205,7 +205,7 @@ export default function ProfileSidebar() {
         flyoutOpen ? 'translate-x-0' : '+translate-x-full'
       }`}
     >
-      <div className='sticky top-16 bg-white dark:bg-[#151D2C] overflow-x-hidden overflow-y-auto no-scrollbar shrink-0 border-r border-gray-200 dark:border-gray-700/60 md:w-[18rem] xl:w-[20rem] h-[calc(100dvh-64px)]'>
+      <div className='sticky top-16 bg-white dark:bg-[#151D2C] overflow-x-hidden overflow-y-auto no-scrollbar shrink-0 border-r border-gray-200 dark:border-gray-700/60 md:w-[18rem] xl:w-[20rem] h-[calc(100dvh-24px)]x'>
         {/* Profile group */}
         <div>
           {/* Group header */}
