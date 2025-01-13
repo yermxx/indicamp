@@ -36,12 +36,12 @@ export default async function About() {
       <AboutBlog />
       <AboutCta />
 
-      <div className='my-5'>
+      {/* <div className='my-5'>
         <AvatarPlaceholder name='홍길동' />
         <AvatarPlaceholder name='Jade' />
         <AvatarPlaceholder name='박' />
         <AvatarPlaceholder name='ax' className='bg-red-500' />
-      </div>
+      </div> */}
     </>
   );
 }
