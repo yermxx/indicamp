@@ -44,7 +44,7 @@ export default function Curriculum() {
 
       <div className='bg-white p-8 rounded-xl shadow-lg w-full max-w-4xl mx-auto my-10'>
         {/* 선발절차,교육일정 */}
-        <div className='flex gap-80 items-center mb-6'>
+        <div className='flex gap-72 items-center mb-6'>
           <div className='text-center'>
             <div className='bg-blue-500 text-white rounded-3xl px-4 py-2 font-bold min-w-[100px]'>
               선발 절차
@@ -59,7 +59,7 @@ export default function Curriculum() {
 
         <div className='relative'>
           {/* 점선 */}
-          <div className='absolute top-1/2 transform -translate-y-1/2 left-0 right-0 border-t-2 border-dashed border-gray-300 z-0'></div>
+          <div className='absolute top-4 transform -translate-y-1/2 left-0 right-0 border-t-2 border-dashed border-gray-300 z-30'></div>
           <div className='flex justify-between items-center relative'>
             {/* 첫 번째 원 */}
             <div className='text-center'>
@@ -72,7 +72,7 @@ export default function Curriculum() {
 
             {/* 두 번째 원 */}
             <div className='text-center'>
-              <div className='w-8 h-8 bg-blue-200 rounded-full mx-auto mb-2 relative z-20'></div>
+              <div className='w-8 h-8 bg-blue-200 rounded-full mx-auto mb-2 relative opacity-80 z-20'></div>
               <p className='text-base text-gray-500 font-semibold'>
                 2025.02.24
               </p>
@@ -90,7 +90,7 @@ export default function Curriculum() {
 
             {/* 네 번째 원 */}
             <div className='text-center'>
-              <div className='w-8 h-8 bg-yellow-100 rounded-full mx-auto mb-2 relative z-20'></div>
+              <div className='w-8 h-8 bg-yellow-200 rounded-full mx-auto mb-2 relative z-20'></div>
               <p className='text-base text-gray-500 font-semibold'>
                 2025.02.29
               </p>
@@ -99,7 +99,7 @@ export default function Curriculum() {
 
             {/* 다섯 번째 원 */}
             <div className='text-center'>
-              <div className='w-8 h-8 bg-yellow-200 rounded-full mx-auto mb-2 relative z-20'></div>
+              <div className='w-8 h-8 bg-yellow-300 rounded-full mx-auto mb-2 relative z-20'></div>
               <p className='text-base text-gray-500 font-semibold'>
                 2025.03.01 ~ 05.01
               </p>
@@ -108,7 +108,7 @@ export default function Curriculum() {
 
             {/* 마지막 원 */}
             <div className='text-center'>
-              <div className='w-8 h-8 bg-yellow-300 rounded-full mx-auto mb-2 relative z-20'></div>
+              <div className='w-8 h-8 bg-yellow-400 rounded-full mx-auto mb-2 relative z-20 opacity-80'></div>
               <p className='text-base text-gray-500 font-semibold'>
                 2025.05.01
               </p>
@@ -120,7 +120,7 @@ export default function Curriculum() {
         </div>
       </div>
 
-      <div className='flex justify-end gap-4 m-10'>
+      <div className='flex justify-end gap-8 m-10'>
         <p className='flex items-center font-bold text-xl'>
           더 자세한 커리큘럼이 궁금하다면?
         </p>
