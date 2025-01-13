@@ -11,7 +11,7 @@ export default function Intro() {
       <h1 className='relative z-10 pt-28 text-4xl text-center font-["pretendard"] font-bold'>
         실무 프로젝트는
         <br />
-        <strong className='text-mainblue'>Indicamp</strong>에서 끝내자!
+        <strong className='text-mainblue'>indicamp</strong>에서 끝내자!
       </h1>
 
       <div className='pb-12 pt-12'>

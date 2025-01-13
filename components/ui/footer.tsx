@@ -60,7 +60,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href='/faq'
+                  href='cs/faq'
                   className='text-white hover:text-white hover:font-bold transition duration-150 ease-in-out'
                 >
                   FAQ
