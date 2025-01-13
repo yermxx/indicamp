@@ -12,8 +12,10 @@ export default function Lesson() {
           </h1>
           <div className='mx-auto max-w-3xl'>
             <p className='text-xl text-indigo-200/65'>
-              <strong>Javascript</strong> 부터 <strong>React</strong> 와{' '}
-              <strong>Spring, Database</strong>까지 한번에
+              <strong>JavaScript/TypeScript</strong> 부터{' '}
+              <strong>React/Next</strong> 와{' '}
+              <strong>Linx, Spring, Database</strong>
+              까지 한번에
             </p>
           </div>
         </div>
