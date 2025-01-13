@@ -2,7 +2,6 @@ import ProjectCreateForm from '@/app/projects/project-create-form';
 import ProjectDetail from '@/app/projects/project-detail';
 import { ModalDetail } from '@/components/modal-detail';
 import ProjectCards from './(project-card)/card';
-import ProjectCreateForm from '@/app/projects/project-create-form';
 
 export const metadata = {
   title: 'Shop - Mosaic',
