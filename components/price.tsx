@@ -15,7 +15,8 @@ export default function Price() {
         className='absolute top-44 w-[2146px]x h-[780px]x'
       /> */}
       <h1 className='p-4 text-3xl font-bold m-20'>
-        투자하세요, 당신의 미래에 🚀
+        투자하세요, <br />
+        당신의 미래에 🚀
       </h1>
 
       <div
@@ -90,7 +91,7 @@ export default function Price() {
         </Link>
       </div>
 
-      <div className='flex m-8 gap-12 font-bold z-10'>
+      <div className='flex m-14 gap-12 font-bold z-10'>
         <p>
           이번 기수에 참여가 어렵다면?
           <br />
