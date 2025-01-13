@@ -114,6 +114,9 @@ const config: Config = {
           to: { 'background-position': '200% center' },
         },
       },
+      fontSize: {
+        xxs: ['0.625rem', { lineHeight: '1.4' }],
+      },
     },
     plugins: [animate],
   },
