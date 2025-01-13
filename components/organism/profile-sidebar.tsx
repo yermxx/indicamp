@@ -196,7 +196,7 @@ const mockCampers: Camper[] = [
 ];
 
 export default function ProfileSidebar() {
-  const { flyoutOpen, setFlyoutOpen } = useFlyoutContext();
+  const { flyoutOpen } = useFlyoutContext();
 
   return (
     <div
