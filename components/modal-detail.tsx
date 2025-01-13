@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogOverlay,
@@ -9,7 +8,13 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-export function ModalDetail({ children }: { children: React.ReactNode }) {
+export function ModalDetail({
+  children,
+  triggerButton,
+}: {
+  children: React.ReactNode;
+  triggerButton: React.ReactNode;
+}) {
   // const router = useRouter();
   //
   // const handleOpenChange = () => {
@@ -19,7 +24,7 @@ export function ModalDetail({ children }: { children: React.ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant='outline'>임시 프로젝트 버튼</Button>
+        {triggerButton}
       </DialogTrigger>
       <DialogOverlay className='bg-black/5 '>
         <DialogContent className='overflow-y-hidden max-w-[800px] h-[95vh]'>

@@ -5,7 +5,7 @@ import UsersTabs from '@/app/projects/user-tabs';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-export default function Tags() {
+export default function ProjectDetail() {
   const [isBottom, setIsBottom] = useState(false);
 
   useEffect(() => {
@@ -74,9 +74,10 @@ export default function Tags() {
           </h2>
           <div className='space-y-6'>
             <p>
-              We are a fast-growing, and remote-first company, so you&#39;ll likely
-              get experience on many different projects across the organization.
-              That said, here are some things you&#39;ll probably do:
+              We are a fast-growing, and remote-first company, so you&#39;ll
+              likely get experience on many different projects across the
+              organization. That said, here are some things you&#39;ll probably
+              do:
             </p>
             <ul className='list-disc list-inside space-y-1'>
               <li>Give back to the community via open source and blog posts</li>
@@ -105,9 +106,10 @@ export default function Tags() {
         참고링크
         <div className='border border-slate-100 p-4 rounded-md'>
           <div>
-            <Link target='_blank' href='http://www.naver.com'>https://www.naver.com</Link>
+            <Link target='_blank' href='http://www.naver.com'>
+              https://www.naver.com
+            </Link>
           </div>
-
         </div>
         <hr className='my-6 border-t border-gray-100 dark:border-gray-700/60' />
         <UsersTabs />

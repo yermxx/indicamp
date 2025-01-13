@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -9,12 +8,16 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-export default function ModalForm({ children }: { children: React.ReactNode }) {
+export default function ModalForm({
+  children,
+  triggerButton,
+}: {
+  children: React.ReactNode;
+  triggerButton: React.ReactNode;
+}) {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant='outline'>임시 추가버튼</Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{triggerButton}</DialogTrigger>
       <DialogContent
         onInteractOutside={(e) => {
           e.preventDefault();

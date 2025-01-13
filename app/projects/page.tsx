@@ -1,8 +1,7 @@
+import ProjectCreateForm from '@/app/projects/project-create-form';
 import { Button } from '@/components/ui/button';
 import ProjectCards from './(project-components)/card';
-import ProjectCreateForm from '@/app/projects/project-create-form';
-import ProjectDetail from '@/app/projects/project-detail';
-import { ModalDetail } from '@/components/modal-detail';
+import ModalForm from '@/components/modal-form';
 
 export const metadata = {
   title: 'Projects',
@@ -11,6 +10,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
+    <>
     <div className='px-4 sm:px-6 lg:px-8 py-8 w-full max-w-[96rem] mx-auto'>
       {/* Page header */}
       <div className='mb-5'>
@@ -25,20 +25,22 @@ export default function ProjectsPage() {
           <div className='grid grid-cols-12 gap-6'>
             <div className='col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-gray-800 shadow-xl rounded-xl overflow-hidden'>
               <div className='flex items-center justify-center h-full'>
-                <Button className=' rounded-full bg-gray-300 bg-opacity-20 text-black font-bold '>
-                  +
-                </Button>
+                <ModalForm
+                  triggerButton={
+                    <Button className='rounded-full bg-gray-300 bg-opacity-20 text-black font-bold'>
+                      +
+                    </Button>
+                  }
+                >
+                  <ProjectCreateForm />
+                </ModalForm>
               </div>
             </div>
             <ProjectCards />
           </div>
         </div>
-        {/*임시 추가버튼*/}
-        <ProjectCreateForm />
-        <ModalDetail>
-          <ProjectDetail />
-        </ModalDetail>
       </div>
     </div>
+    </>
   );
 }

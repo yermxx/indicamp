@@ -2,11 +2,10 @@ import TagInput from './tag-input'
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import ModalForm from '@/components/modal-form';
 
 export default function ProjectCreateForm() {
   return (
-    <ModalForm>
+    <>
       <div className='mb-4'>
         <h1 className='text-4xl font-bold mb-2'>프로젝트 생성</h1>
         <div className='text-gray-500'>{''}</div>
@@ -86,6 +85,6 @@ export default function ProjectCreateForm() {
           </Button>
         </div>
       </form>
-    </ModalForm>
+    </>
   );
 }
