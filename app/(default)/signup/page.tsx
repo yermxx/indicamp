@@ -40,7 +40,7 @@ export default function SignUp() {
       <div className='flex flex-col items-center gap-10 mt-8 mb-14'>
         <div className='flex items-end'>
           <div className=' mb-2'>
-            <strong className='text-4xl'>Indicam</strong>
+            <strong className='text-4xl uppercase'>Indicam</strong>
           </div>
           <Image className='' src={Logo} alt='Logo' />
         </div>

@@ -42,7 +42,7 @@ export default async function Login({ searchParams: { callbackUrl } }: Props) {
       <div className='flex flex-col items-center gap-8 w-96 mx-auto my-12'>
         <div className='flex items-end'>
           <div className=' mb-2'>
-            <strong className='text-4xl'>Indicam</strong>
+            <strong className='text-4xl uppercase'>Indicam</strong>
           </div>
           <Image className='' src={Logo} alt='Logo' />
         </div>

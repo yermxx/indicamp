@@ -10,7 +10,7 @@ export default async function Navigation() {
     <nav>
       <div className='flex items-center justify-between pt-7 pb-4 border-b shadow-md bg-white'>
         <Link href='/' className='flex relative px-8 font-bold'>
-          <strong className='text-3xl'>indicam</strong>
+          <strong className='text-3xl uppercase'>indicam</strong>
           <Image
             className='absolute right-1 bottom-0'
             src={logo}
