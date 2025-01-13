@@ -10,11 +10,14 @@ import Inspiration06 from '@/public/images/about/inspiration-06.jpg';
 import Inspiration07 from '@/public/images/about/inspiration-07.jpg';
 import Inspiration08 from '@/public/images/about/inspiration-08.jpg';
 import Inspiration09 from '@/public/images/about/inspiration-09.jpg';
+import { LogInIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import AvatarPlaceholder from '@/components/avatar-placeholder';
+import SignupCampButton from './signup-camp';
 
-export default function Inspiration() {
+export default function LatestCamps() {
   const [category, setCategory] = useState<string>('0');
 
   return (
@@ -35,9 +38,7 @@ export default function Inspiration() {
                   fillRule='evenodd'
                 />
               </svg>
-              <h2 className='h2 font-cabinet-grotesk'>
-                Latest Camps & Projects
-              </h2>
+              <h2 className='h2 font-cabinet-grotesk'>Latest Camps</h2>
             </div>
           </div>
           {/* Content */}
@@ -54,7 +55,7 @@ export default function Inspiration() {
                     <span
                       className={`text-xs font-semibold px-1 py-px rounded-full ml-2 ${category === '0' ? 'text-white bg-blue-300' : 'text-gray-400 bg-gray-100'}`}
                     >
-                      2.7K
+                      9개 기수
                     </span>
                   </div>
                 </button>
@@ -63,11 +64,11 @@ export default function Inspiration() {
                   onClick={() => setCategory('1')}
                 >
                   <div className='flex items-center justify-center'>
-                    <span>Illustration</span>
+                    <span>참여자</span>
                     <span
                       className={`text-xs font-semibold px-1 py-px rounded-full ml-2 ${category === '1' ? 'text-white bg-blue-300' : 'text-gray-400 bg-gray-100'}`}
                     >
-                      1.2K
+                      100+
                     </span>
                   </div>
                 </button>
@@ -76,11 +77,11 @@ export default function Inspiration() {
                   onClick={() => setCategory('2')}
                 >
                   <div className='flex items-center justify-center'>
-                    <span>Branding</span>
+                    <span>프로젝트</span>
                     <span
                       className={`text-xs font-semibold px-1 py-px rounded-full ml-2 ${category === '2' ? 'text-white bg-blue-300' : 'text-gray-400 bg-gray-100'}`}
                     >
-                      1.4K
+                      10+
                     </span>
                   </div>
                 </button>
@@ -89,11 +90,11 @@ export default function Inspiration() {
                   onClick={() => setCategory('3')}
                 >
                   <div className='flex items-center justify-center'>
-                    <span>Product Design</span>
+                    <span>기획/디자인 직군</span>
                     <span
                       className={`text-xs font-semibold px-1 py-px rounded-full ml-2 ${category === '3' ? 'text-white bg-blue-300' : 'text-gray-400 bg-gray-100'}`}
                     >
-                      1.7K
+                      25%
                     </span>
                   </div>
                 </button>
@@ -102,11 +103,11 @@ export default function Inspiration() {
                   onClick={() => setCategory('4')}
                 >
                   <div className='flex items-center justify-center'>
-                    <span>Typography</span>
+                    <span>개발 직군</span>
                     <span
                       className={`text-xs font-semibold px-1 py-px rounded-full ml-2 ${category === '4' ? 'text-white bg-blue-300' : 'text-gray-400 bg-gray-100'}`}
                     >
-                      989
+                      75%
                     </span>
                   </div>
                 </button>
@@ -149,19 +150,13 @@ export default function Inspiration() {
                     <div className='relative flex justify-between'>
                       {/* Left side */}
                       <div className='flex items-center'>
-                        <Image
-                          className='shrink-0 w-9 h-9 rounded-full mr-4'
-                          src={Author01}
-                          width='36'
-                          height='36'
-                          alt='Author 01'
-                        />
+                        <AvatarPlaceholder name='영등포1기' />
                         <div className='truncate'>
                           <div className='font-bold text-white truncate'>
-                            Ada Ahdiyat
+                            영등포1기
                           </div>
                           <div className='text-xs text-white opacity-60 truncate'>
-                            @ada-designer-ok
+                            서울시 새싹(SeSAC)
                           </div>
                         </div>
                       </div>
@@ -219,19 +214,13 @@ export default function Inspiration() {
                     <div className='relative flex justify-between'>
                       {/* Left side */}
                       <div className='flex items-center'>
-                        <Image
-                          className='shrink-0 w-10 h-10 rounded-full mr-4'
-                          src={Author01}
-                          width={40}
-                          height={40}
-                          alt='Author 01'
-                        />
+                        <AvatarPlaceholder name='영등포2기' />
                         <div className='truncate'>
                           <div className='font-bold text-white truncate'>
-                            Ada Ahdiyat
+                            영등포2기
                           </div>
                           <div className='text-xs text-white opacity-60 truncate'>
-                            @ada-designer-ok
+                            서울시 새싹(SeSAC)
                           </div>
                         </div>
                       </div>
@@ -289,19 +278,13 @@ export default function Inspiration() {
                     <div className='relative flex justify-between'>
                       {/* Left side */}
                       <div className='flex items-center'>
-                        <Image
-                          className='shrink-0 w-10 h-10 rounded-full mr-4'
-                          src={Author01}
-                          width={40}
-                          height={40}
-                          alt='Author 01'
-                        />
+                        <AvatarPlaceholder name='하나' />
                         <div className='truncate'>
                           <div className='font-bold text-white truncate'>
-                            Ada Ahdiyat
+                            하나은행 하나로3기
                           </div>
                           <div className='text-xs text-white opacity-60 truncate'>
-                            @ada-designer-ok
+                            하나은행 & 알파코
                           </div>
                         </div>
                       </div>
@@ -371,7 +354,7 @@ export default function Inspiration() {
                             Ada Ahdiyat
                           </div>
                           <div className='text-xs text-white opacity-60 truncate'>
-                            @ada-designer-ok
+                            디자이너
                           </div>
                         </div>
                       </div>
@@ -429,19 +412,13 @@ export default function Inspiration() {
                     <div className='relative flex justify-between'>
                       {/* Left side */}
                       <div className='flex items-center'>
-                        <Image
-                          className='shrink-0 w-10 h-10 rounded-full mr-4'
-                          src={Author01}
-                          width={40}
-                          height={40}
-                          alt='Author 01'
-                        />
+                        <AvatarPlaceholder name='금천1기' />
                         <div className='truncate'>
                           <div className='font-bold text-white truncate'>
-                            Ada Ahdiyat
+                            금천1기
                           </div>
                           <div className='text-xs text-white opacity-60 truncate'>
-                            @ada-designer-ok
+                            서울시 새싹(SeSAC)
                           </div>
                         </div>
                       </div>
@@ -499,19 +476,13 @@ export default function Inspiration() {
                     <div className='relative flex justify-between'>
                       {/* Left side */}
                       <div className='flex items-center'>
-                        <Image
-                          className='shrink-0 w-10 h-10 rounded-full mr-4'
-                          src={Author01}
-                          width={40}
-                          height={40}
-                          alt='Author 01'
-                        />
+                        <AvatarPlaceholder name='영등포4기' />
                         <div className='truncate'>
                           <div className='font-bold text-white truncate'>
-                            Ada Ahdiyat
+                            영등포4기
                           </div>
                           <div className='text-xs text-white opacity-60 truncate'>
-                            @ada-designer-ok
+                            서울시 새싹(SeSAC)
                           </div>
                         </div>
                       </div>
@@ -569,19 +540,13 @@ export default function Inspiration() {
                     <div className='relative flex justify-between'>
                       {/* Left side */}
                       <div className='flex items-center'>
-                        <Image
-                          className='shrink-0 w-10 h-10 rounded-full mr-4'
-                          src={Author01}
-                          width={40}
-                          height={40}
-                          alt='Author 01'
-                        />
+                        <AvatarPlaceholder name='영등포5기' />
                         <div className='truncate'>
                           <div className='font-bold text-white truncate'>
-                            Ada Ahdiyat
+                            영등포5기
                           </div>
                           <div className='text-xs text-white opacity-60 truncate'>
-                            @ada-designer-ok
+                            서울시 새싹(SeSAC)
                           </div>
                         </div>
                       </div>
@@ -639,19 +604,13 @@ export default function Inspiration() {
                     <div className='relative flex justify-between'>
                       {/* Left side */}
                       <div className='flex items-center'>
-                        <Image
-                          className='shrink-0 w-10 h-10 rounded-full mr-4'
-                          src={Author01}
-                          width={40}
-                          height={40}
-                          alt='Author 01'
-                        />
+                        <AvatarPlaceholder name='하나로3기' />
                         <div className='truncate'>
                           <div className='font-bold text-white truncate'>
-                            Ada Ahdiyat
+                            하나은행 하나로3기
                           </div>
                           <div className='text-xs text-white opacity-60 truncate'>
-                            @ada-designer-ok
+                            하나은행 & 알파코
                           </div>
                         </div>
                       </div>
@@ -752,12 +711,7 @@ export default function Inspiration() {
               {/* CTA */}
               <div className='absolute bottom-0 left-0 right-0 h-[352px] bg-gradient-to-t from-white to-transparent'>
                 <div className='flex h-full items-end justify-center'>
-                  <Link
-                    className='btn text-white bg-blue-500 hover:bg-blue-600 shadow-sm mb-6'
-                    href='/signup'
-                  >
-                    Join The Community
-                  </Link>
+                  <SignupCampButton />
                 </div>
               </div>
             </div>

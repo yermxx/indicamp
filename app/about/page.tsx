@@ -1,7 +1,14 @@
 import prisma from '@/lib/db';
 import AvatarPlaceholder from '@/components/avatar-placeholder';
+import Creatives from './creatives';
 import Hero from './hero';
-import Inspiration from './inspiration';
+import LastProjectsCarousel from './last-projects';
+import LatestCamps from './latest-camps';
+
+export const metadata = {
+  title: 'About - indicamp',
+  description: '인디캠프에 대해, 인디캠프 소개',
+};
 
 export default async function About() {
   const projecter = await prisma.projecter.findUnique({
@@ -17,7 +24,9 @@ export default async function About() {
   return (
     <>
       <Hero />
-      <Inspiration />
+      <LatestCamps />
+      <LastProjectsCarousel />
+      <Creatives />
 
       <div className='my-5'>
         <h1 className='text-3xl'>About @indicamp</h1>

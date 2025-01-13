@@ -1,6 +1,16 @@
 import HeroImage from '@/public/images/hero-image.png';
+import {
+  AtSignIcon,
+  ExternalLink,
+  ExternalLinkIcon,
+  Link2Icon,
+  ListStartIcon,
+  LogInIcon,
+  SquareArrowOutUpRightIcon,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SignupCampButton from './signup-camp';
 
 export default function Hero() {
   return (
@@ -22,13 +32,13 @@ export default function Hero() {
                 data-aos='fade-right'
                 data-aos-delay='100'
               >
-                The platform for Project{' '}
+                포플과 실무 경험을 한번에?{' '}
                 <span className='relative inline-flex text-blue-500'>
                   <svg
                     className='absolute left-0 top-full -mt-4 max-w-full -z-10'
-                    width='220'
+                    width='380'
                     height='24'
-                    viewBox='0 0 220 24'
+                    viewBox='0 0 280 24'
                     xmlns='http://www.w3.org/2000/svg'
                   >
                     <path
@@ -37,16 +47,19 @@ export default function Hero() {
                       fillRule='evenodd'
                     />
                   </svg>
-                  camps
+                  indicamp
                 </span>
-                .
+                !
               </h1>
               <p
                 className='text-xl text-gray-500 mb-10'
                 data-aos='fade-right'
                 data-aos-delay='200'
               >
-                실무 프로젝트를 수행하며
+                인디캠프는 서울시(SeSAC)를 비롯해 전국 지자체와 함께 여러분의
+                프로젝트와 취업을 돕습니다. 온라인에서 강의를 듣고, 오프라인에서
+                스터디와 실무 프로젝트를 수행합니다. 전문 지식과 실무 경험을
+                동시에 쌓고 그 결과물로 포트폴리오와 취업의 기회를 얻게 됩니다.
               </p>
               {/* Buttons */}
               <div
@@ -54,20 +67,20 @@ export default function Hero() {
                 data-aos='fade-right'
                 data-aos-delay='300'
               >
-                <div>
-                  <Link
-                    className='btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm'
-                    href='/signup'
-                  >
-                    Join The Community
-                  </Link>
-                </div>
+                <SignupCampButton />
                 <div>
                   <Link
                     className='btn text-gray-600 bg-white hover:bg-blue-100 hover:text-blue-600 w-full shadow-sm'
-                    href='/signin'
+                    href='https://sesac.seoul.kr'
                   >
-                    Sign In
+                    서울시
+                    <span className='text-green-600 font-medium mx-2'>
+                      SeSAC
+                    </span>
+                    <SquareArrowOutUpRightIcon
+                      size={20}
+                      className='text-gray-400'
+                    />
                   </Link>
                 </div>
               </div>
@@ -79,9 +92,9 @@ export default function Hero() {
               >
                 <div>
                   <div className='font-cabinet-grotesk text-2xl font-extrabold'>
-                    27M
+                    100+
                   </div>
-                  <div className='text-gray-500'>Inspiration</div>
+                  <div className='text-gray-500'>지원자</div>
                 </div>
                 <svg
                   className='fill-gray-300'
@@ -96,9 +109,9 @@ export default function Hero() {
                 </svg>
                 <div>
                   <div className='font-cabinet-grotesk text-2xl font-extrabold'>
-                    44K
+                    100%
                   </div>
-                  <div className='text-gray-500'>Collections</div>
+                  <div className='text-gray-500'>수료율/만족도</div>
                 </div>
                 <svg
                   className='fill-gray-300'
@@ -113,9 +126,9 @@ export default function Hero() {
                 </svg>
                 <div>
                   <div className='font-cabinet-grotesk text-2xl font-extrabold'>
-                    2M+
+                    99%
                   </div>
-                  <div className='text-gray-500'>Creatives</div>
+                  <div className='text-gray-500'>취업률</div>
                 </div>
               </div>
             </div>
