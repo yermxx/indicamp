@@ -117,11 +117,11 @@ export default function Challenge() {
         </div>
       </div>
       {/* CTA */}
-      <div className='py-8'>
+      <div>
         <h2 className='text-center leading-tight lg:leading-normal font-bold text-xl sm:text-3xl'>
           여러분의 모든 고민, <br />
           <span className='bg-amber-300'>
-            <strong className='text-blue-900'>Indicamp</strong>와 함께라면 해결
+            <strong className='text-blue-900'>indicamp</strong>와 함께라면 해결
             가능합니다!
           </span>
         </h2>

@@ -20,7 +20,7 @@ export default function Mentor() {
             특별한 여정을 함께할 <br />
             <div className='inline-flex items-center gap-2'>
               <span className='inline-flex items-center'>
-                <strong className='text-indigo-900'>Indicamp</strong>의 시니어
+                <strong className='text-indigo-900'>indicamp</strong>의 시니어
                 멘토를 소개합니다
                 <Sparkles className='ml-1 w-8 h-8 fill-amber-400' />
               </span>

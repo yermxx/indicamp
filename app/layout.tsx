@@ -20,12 +20,11 @@ export default function RootLayout({
         <header className='fixed w-full z-50'>
           <Navigation />
         </header>
-        <main className='pt-24x containerx'>
+        <main className='pt-20 containerx'>
           <SessionProvider>{children}</SessionProvider>
         </main>
         <footer className='bottom-0 w-full'>
           <Footer />
-          {/* &#169; indicamp 2024 */}
         </footer>
       </body>
     </html>

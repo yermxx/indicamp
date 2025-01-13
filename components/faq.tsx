@@ -49,7 +49,7 @@ export default function Faq() {
       <div className='sm:w-1/2'>
         {/* Section title */}
         <h2 className='text-center sm:text-left text-2xl sm:text-3xl font-semibold mb-12'>
-          <strong className='text-indigo-900'>Indicamp</strong>에 대해 더 자세히
+          <strong className='text-indigo-900'>indicamp</strong>에 대해 더 자세히
           알려드려요!
         </h2>
         {/* Main */}

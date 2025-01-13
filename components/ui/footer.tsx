@@ -6,7 +6,7 @@ export default function Footer() {
     <footer>
       <div className='w-full mx-auto sm:px-6 bg-blue-900'>
         {/* Top area: Blocks */}
-        <div className='grid sm:grid-cols-12 gap-8 py-8 md:pt-16 md:pb-24 px-12 md:px-32'>
+        <div className='grid sm:grid-cols-12 gap-8 pt-8 sm:pt-12 pb-12 sm:pb-16 px-12'>
           {/* 1st block */}
           <div className='sm:col-span-12 lg:col-span-5 lg:max-w-xs'>
             {/* Logo */}
