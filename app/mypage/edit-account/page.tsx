@@ -1,9 +1,11 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 export default function EditAccount() {
+  const session = useSession();
   return (
     <div className='flex flex-col items-center gap-10 mt-20 mb-14'>
       <div className='flex flex-col w-96 gap-8'>
@@ -11,7 +13,7 @@ export default function EditAccount() {
 
         <div className='flex flex-col gap-2'>
           <p className='text-sm font-bold'>아이디</p>
-          <p className='text-base text-gray-500'>abc@naver.com</p>
+          <p className='text-base text-gray-500'>{session.data?.user?.email}</p>
         </div>
 
         <div className='flex flex-col gap-2'>
@@ -45,7 +47,7 @@ export default function EditAccount() {
           <Input
             id='nickname'
             type='text'
-            defaultValue={'현재 닉네임'}
+            defaultValue={session.data?.user?.name || ''}
             placeholder='닉네임을 입력해주세요'
           />
         </div>
@@ -60,8 +62,8 @@ export default function EditAccount() {
         </div>
         <div className='my-4'>
           <p
-            onClick={() => alert('진짜로 삭제???')}
-            className='text-base hover:cursor-pointer hover:text-gray-600 text-center text-gray-300'
+            onClick={() => alert('정말 탈퇴하시겠어요?')}
+            className='text-base hover:cursor-pointer hover:text-gray-600 text-center text-red-300'
           >
             계정삭제하기
           </p>

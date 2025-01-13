@@ -1,4 +1,3 @@
-import sico from '@/public/images/home/mentor/senior_coding.png';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import SolidButton from '@/components/ui/solid-button';
@@ -12,7 +11,7 @@ type Mentor = {
 export default function AboutMentor({ mentor }: { mentor: Mentor }) {
   return (
     <div className='flex gap-6 justify-between mb-24 bg-blue-100 bg-opacity-50 rounded-2xl p-16 shadow-inner'>
-      <h2 className='font-bold text-2xl inline-flex'>시니어 멘토 소개</h2>
+      <h2 className='font-bold text-2xl inline-flex'>멘토 소개</h2>
       <div className='w-auto flex items-center justify-center border border-gray-200 rounded-xl p-8 bg-white shadow-md'>
         <div className='flex flex-col justify-center pr-10'>
           <Image

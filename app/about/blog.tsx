@@ -96,7 +96,7 @@ export default function AboutBlog() {
                       className='inline-block decoration-blue-500 decoration-2 underline-offset-2 hover:underline'
                       href='#0'
                     >
-                      Patrick Chen's Branding by Thought &amp; Found Studio
+                      Patrick Chen&apos;s Branding by Thought &amp; Found Studio
                     </a>
                   </h3>
                 </header>

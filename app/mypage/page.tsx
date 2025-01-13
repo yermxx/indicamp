@@ -1,6 +1,4 @@
-import { IoIosArrowUp } from 'react-icons/io';
 import Myprofile from '@/components/my-profile';
-import { Button } from '@/components/ui/button';
 import InfoAccordion from './(components)/info-accordion';
 
 export default function Mypage() {

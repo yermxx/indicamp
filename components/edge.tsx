@@ -29,7 +29,7 @@ export default function Edge() {
   return (
     <section className='bg-blue-100 text-center mt-20 pb-40 font-["pretendard"]'>
       <h1 className='p-20 text-center font-bold sm:text-3xl md:text-3xl lg:text-4xl leading-tight'>
-        <strong className='text-mainblue'>Indicamp</strong>는 무엇이 다른가요?
+        <strong className='text-mainblue'>indicamp</strong>는 무엇이 다른가요?
       </h1>
 
       {/* <div className='relative w-full h-full'>  */}

@@ -2,8 +2,10 @@ import logo from '@/public/indicamp+logo.png';
 import { Bell } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { auth } from '@/lib/auth';
 
-export default function Navigation() {
+export default async function Navigation() {
+  const session = await auth();
   return (
     <nav>
       <div className='flex items-center justify-between pt-7 pb-4 border-b shadow-md bg-white'>
@@ -48,14 +50,18 @@ export default function Navigation() {
           <button>
             <Bell />
           </button>
-          <Link href='/login'>
-            <button
-              type='button'
-              className='text-lg text-blue-500 font-semibold hover:text-blue-300'
-            >
-              Login
-            </button>
-          </Link>
+          {session?.user?.email ? (
+            <Link href='/mypage'>{session.user.name}</Link>
+          ) : (
+            <Link href='/login'>
+              <button
+                type='button'
+                className='text-lg text-blue-500 font-semibold hover:text-blue-300'
+              >
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>

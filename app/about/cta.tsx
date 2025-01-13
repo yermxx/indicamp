@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import SignupCampButton from './signup-camp';
 
 export default function AboutCta() {

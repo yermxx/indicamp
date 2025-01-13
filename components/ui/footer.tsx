@@ -10,7 +10,7 @@ export default function Footer() {
           {/* 1st block */}
           <div className='sm:col-span-12 lg:col-span-5 lg:max-w-xs'>
             {/* Logo */}
-            <div className='text-3xl font-bold text-white'>Indicamp</div>
+            <div className='text-3xl font-bold text-white'>indicamp</div>
             {/* Social links */}
             <div className='md:flex md:items-center md:justify-between py-5'>
               <ul className='flex gap-4 mb-4 md:order-1 md:mb-0'>
@@ -121,7 +121,7 @@ export default function Footer() {
         </div>
         {/* Copyrights note */}
         <div className='text-sm md:text-xl text-center text-white mr-4 py-2 border-t border-slate-200'>
-          © 2025 Indicamp. All rights reserved.
+          © 2025 indicamp. All rights reserved.
         </div>
       </div>
     </footer>

@@ -66,7 +66,7 @@ export default function Intro() {
       </div>
 
       <h1 className='relative z-10 text-3xl text-center font-["pretendard"] font-bold m-10'>
-        현재 <strong className='text-mainblue'>Indicamp</strong> {number}기 모집
+        현재 <strong className='text-mainblue'>indicamp</strong> {number}기 모집
         중!
       </h1>
       <div className='flex relative z-10 justify-center mt-4 pb-20'>

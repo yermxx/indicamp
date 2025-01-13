@@ -107,7 +107,7 @@ export default function ApplySecond() {
                     <div className='flex flex-col gap-4'>
                       <h2 className='font-bold text-xl'>💡 참가 비용 안내</h2>
                       <div className='bg-pink-100 rounded-2xl p-4 text-md'>
-                        ▪️ 정규 신청 : 300,000원
+                        ▪️ 정규 신청 : 200,000원
                       </div>
                       <p className='text-gray-400'>
                         ※ 최종 합격자분들께는 개별적으로 결제 상세 안내를 드릴

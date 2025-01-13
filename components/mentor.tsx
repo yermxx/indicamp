@@ -20,15 +20,15 @@ export default function Mentor() {
             특별한 여정을 함께할 <br />
             <div className='inline-flex items-center gap-2'>
               <span className='inline-flex items-center'>
-                <strong className='text-indigo-900'>indicamp</strong>의 시니어
-                멘토를 소개합니다
+                <strong className='text-indigo-900'>indicamp</strong>의 멘토를
+                소개합니다
                 <Sparkles className='ml-1 w-8 h-8 fill-amber-400' />
               </span>
             </div>
           </h2>
           {/* Introduce */}
           <div className='flex gap-6 justify-between mb-24 bg-blue-100 bg-opacity-50 rounded-2xl p-16 shadow-inner'>
-            <h2 className='font-bold text-2xl inline-flex'>시니어 멘토 소개</h2>
+            <h2 className='font-bold text-2xl inline-flex'>멘토 소개</h2>
             <div className='w-auto flex items-center justify-center border border-gray-200 rounded-xl p-8 bg-white shadow-md'>
               <div className='flex flex-col justify-center pr-10'>
                 <Image
@@ -82,7 +82,7 @@ export default function Mentor() {
           <section className='flex justify-between mb-24 gap-6 bg-violet-100 bg-opacity-50 p-16 rounded-2xl shadow-inner'>
             <div className='flex flex-col'>
               <h2 className='font-bold text-2xl mb-12'>
-                시니어 멘토님과 <br />
+                멘토님과 <br />
                 함께한 성장 스토리
               </h2>
               <Link href='/about'>
@@ -354,7 +354,9 @@ export default function Mentor() {
                 이밖에도 대기업 출신의 개발 멘토들이
                 <br /> 여러분을 기다리고 있어요!
               </h2>
-              <SolidButton type='button' text='멘토 자세히 보러 가기 →' />
+              <Link href='/about'>
+                <SolidButton type='button' text='멘토 자세히 보러 가기 →' />
+              </Link>
             </div>
             <div className='w-[700px] relative mx-auto'>
               <div className='grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center'>

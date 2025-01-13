@@ -1,6 +1,7 @@
 import Logo from '@/public/indicamp+logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { auth, signIn } from '@/lib/auth';
 import prisma, { query } from '@/lib/db';
 import LoginForm from './(components)/loginForm';
@@ -21,10 +22,14 @@ type Props = {
 export default async function Login({ searchParams: { callbackUrl } }: Props) {
   const session = await auth();
   console.log('🚀 login - session:', session);
+  if (session?.user?.email) {
+    redirect('/');
+  }
 
   const users1 = await query<User>('select * from User');
   console.log('🚀  users1:', users1?.length);
   const users = await prisma.user.findMany();
+  console.log('🚀  users:', users);
 
   const snsLogin = async (service: SNS = 'google') => {
     'use server';

@@ -1,13 +1,5 @@
 import HeroImage from '@/public/images/hero-image.png';
-import {
-  AtSignIcon,
-  ExternalLink,
-  ExternalLinkIcon,
-  Link2Icon,
-  ListStartIcon,
-  LogInIcon,
-  SquareArrowOutUpRightIcon,
-} from 'lucide-react';
+import { SquareArrowOutUpRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import SignupCampButton from './signup-camp';

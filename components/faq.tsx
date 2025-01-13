@@ -80,7 +80,7 @@ export default function Faq() {
           <h2 className='text-gray-500 font-bold text-lg sm:text-xl'>
             추가로 궁금한 점이 있다면?
           </h2>
-          <Link href='inquiry'>
+          <Link href='/cs/inquiry' scroll={false}>
             <div>
               <SolidButton type='button' text='1:1 문의하기 →' />
             </div>

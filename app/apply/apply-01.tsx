@@ -66,7 +66,7 @@ export default function ApplyFirst() {
                     >
                       거주 지역 <span className='text-red-500'>*</span>
                       <p className='text-xs text-red-500 py-1'>
-                        * Indicamp 1기는 매주 토요일 서울에서 진행됩니다. <br />
+                        * indicamp 1기는 매주 토요일 서울에서 진행됩니다. <br />
                         지방 거주자는 매주 오프라인 참석이 가능한 분에 한해
                         선발될 예정입니다.
                       </p>

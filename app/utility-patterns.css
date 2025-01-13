@@ -208,3 +208,9 @@ input[type='search']::-webkit-search-results-decoration {
 .swiper-pagination-bullet-active {
   @apply bg-blue-400;
 }
+
+.bgimg {
+  background-image: url('./glow-top.svg');
+  background-repeat: no-repeat;
+  background-size: 2146px 100%;
+}

@@ -12,26 +12,26 @@ export default function Curriculum() {
   return (
     <div className='flex flex-col items-center bg-gray-100 w-screen text-center p-8 font-["pretendard"] '>
       <h1 className='font-bold m-20 sm:text-3xl md:text-3xl lg:text-4xl leading-tight'>
-        <strong className='text-mainblue'>Indicamp</strong>는 이렇게 진행돼요
+        <strong className='text-mainblue'>indicamp</strong>는 이렇게 진행돼요
       </h1>
 
       {/* 일정안내*/}
-      <div className='flex flex-col m-6 p-10 bg-white justify-center items-start gap-4 rounded-xl w-max'>
-        <div className='flex justify-center gap-4 items-center min-w-[400px] max-w-[600px]'>
-          <div className='rounded-3xl font-bold border-blue-600 border text-blue-600 p-2 min-w-[100px] text-center'>
+      <div className='flex flex-col m-6 p-10 bg-white items-start gap-4 rounded-xl w-max'>
+        <div className='flex gap-4 items-center min-w-[400px] max-w-[600px]'>
+          <div className='rounded-3xl font-bold border-blue-600 border text-blue-600 p-2 min-w-[100px] text-centerx'>
             교육 기간
           </div>
           <p className='font-bold text-xl'>{PROJECT_SCHEDULE} (8주)</p>
         </div>
 
-        <div className='flex justify-center gap-4 items-center max-w-[600px]'>
+        <div className='flex gap-4 items-center max-w-[600px]'>
           <div className='rounded-3xl font-bold border-blue-600 border text-blue-600 p-2 min-w-[100px] text-center'>
             모집 인원
           </div>
           <p className='font-bold text-xl'>35명</p>
         </div>
 
-        <div className='flex justify-center gap-4 items-center min-w-[400px] max-w-[600px]'>
+        <div className='flex gap-4 items-center min-w-[400px] max-w-[600px]'>
           <div className='rounded-3xl font-bold border-blue-600 border text-blue-600 p-2 min-w-[100px] text-center'>
             모집 기간
           </div>

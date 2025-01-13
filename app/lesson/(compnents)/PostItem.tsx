@@ -31,7 +31,7 @@ export default function PostItem({
           tabIndex={-1}
         >
           <Image
-            className='aspect-[101/64] w-full object-cover opacity-70 grayscale transition ease-out group-hover:scale-[1.02] group-hover:opacity-100 group-hover:grayscale-[20%]'
+            className='aspect-[101/64] w-full object-cover opacity-70 grayscalex transition ease-out group-hover:scale-[1.02] group-hover:opacity-100 group-hover:grayscale-[20%]x'
             src={titleImg}
             width={347}
             height={220}

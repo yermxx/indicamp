@@ -1,18 +1,19 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import SolidButton from './ui/solid-button';
 
 export default function Price() {
   return (
-    <section className='relative flex flex-col items-center font-["pretendard"]'>
-      <img
+    <section className='relative flex flex-col items-center font-["pretendard"] bgimg'>
+      {/* <Image
         src='/images/glow-top.svg'
         alt=''
-        className='absolute top-44 w-[2146px] h-[780px]'
-      />
+        width={`2146`}
+        height={`780`}
+        className='absolute top-44 w-[2146px]x h-[780px]x'
+      /> */}
       <h1 className='p-4 text-3xl font-bold m-20'>
-        투자하세요,
-        <br />
-        당신의 미래에 🚀
+        투자하세요, 당신의 미래에 🚀
       </h1>
 
       <div
@@ -25,11 +26,11 @@ export default function Price() {
         <div className='mb-6'>
           <div className='text-xl font-bold mb-1'>🌱 정규 신청 시</div>
           <div className='text-3xl font-bold mb-1 line-through text-gray-200'>
-            <span className='text-xl'></span>500,000
+            <span className='text-xl'></span>300,000
           </div>
           <div className=' text-indigo-500 font-bold inline-flex items-baseline mb-2'>
             <span className='text-5xl'>
-              300<span className='text-3xl'>,</span>000
+              200<span className='text-3xl'>,</span>000
             </span>
             <span>원</span>
           </div>
@@ -59,7 +60,7 @@ export default function Price() {
             >
               <path d='M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z' />
             </svg>
-            <span>시니어 멘토의 밀착 피드백</span>
+            <span>멘토의 밀착 피드백</span>
           </li>
           <li className='flex items-center'>
             <svg
