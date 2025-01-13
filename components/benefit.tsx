@@ -115,7 +115,7 @@ export default function Benefit() {
           {/* Section header */}
           <div className='mx-auto max-w-3xl text-center'>
             <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-gray-200'>
-              지금 <strong className='text-blue-500'>Indicamp</strong>에
+              지금 <strong className='text-blue-500'>indicamp</strong>에
               합류하면
               <br /> 받을 수 있는 혜택
             </h2>
