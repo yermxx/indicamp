@@ -1,10 +1,12 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import SolidButton from './ui/solid-button';
 
 export default function Price() {
   return (
-    <section className='relative flex flex-col items-center font-["pretendard"] bgimg'>
+    <section
+      className='relative flex flex-col items-center font-["pretendard"] bgimg'
+      style={{ backgroundPosition: '50%' }}
+    >
       {/* <Image
         src='/images/glow-top.svg'
         alt=''

@@ -7,7 +7,7 @@ export default function ProjectsLayout({
 }) {
   return (
     <>
-      <div className='flex mr-4 ml-4 mt-4'>
+      <div className='flex mr-4 ml-4 my-8'>
         <span>
           <TermButton />
         </span>
